@@ -36,6 +36,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val task1 = async { getTask1() }
+            val task2 = async { getTask2() }
+            val task3 = async { getTask3() }
+            val total = task1.await() + task2.await() + task3.await()
+            Log.d(TAG, "TOTAL: $total")
+        }
     }
 
     private suspend fun downloadUserDataFun() {
@@ -47,5 +55,23 @@ class MainActivity : AppCompatActivity() {
             delay(2000)
 
         }
+    }
+
+    private suspend fun getTask1(): Int {
+        delay(6000)
+        Log.d(TAG, "Task 1: ${Thread.currentThread().name}")
+        return 6000
+    }
+
+    private suspend fun getTask2(): Int {
+        delay(4000)
+        Log.d(TAG, "Task 2: ${Thread.currentThread().name}")
+        return 4000
+    }
+
+    private suspend fun getTask3(): Int {
+        delay(2000)
+        Log.d(TAG, "Task 3: ${Thread.currentThread().name}")
+        return 2000
     }
 }
