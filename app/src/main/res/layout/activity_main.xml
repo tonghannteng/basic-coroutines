@@ -8,38 +8,38 @@
 
     <TextView
         android:id="@+id/txtUserMessage"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:text="0" />
 
     <Button
         android:id="@+id/downloadUserData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="Download User Data"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:text="Download User Data" />
 
     <TextView
         android:id="@+id/txtCount"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:text="0" />
 
     <Button
         android:id="@+id/btnCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="Count"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:text="Count" />
 
 </LinearLayout>
