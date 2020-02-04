@@ -4,3 +4,4 @@
 
 <li>withContext</li>
 <li>delay</li>
+<li>suspend function</li>
