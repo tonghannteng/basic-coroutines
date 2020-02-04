@@ -3,9 +3,8 @@ package com.tengtonghann.android.basiccoroutines
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +24,28 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             Log.d(TAG, "Hello: ${Thread.currentThread().name}")
+        }
+
+        btnCount.setOnClickListener {
+            txtCount.text = count++.toString()
+        }
+
+        downloadUserData.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                downloadUserDataFun()
+            }
+
+        }
+    }
+
+    private suspend fun downloadUserDataFun() {
+        for (i in 1..100000) {
+            Log.d(TAG, "Download User: $i ${Thread.currentThread().name}")
+            withContext(Dispatchers.Main) {
+                txtUserMessage.text = i.toString()
+            }
+            delay(2000)
+
         }
     }
 }
